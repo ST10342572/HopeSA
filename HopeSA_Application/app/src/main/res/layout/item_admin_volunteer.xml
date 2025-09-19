@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <TextView android:id="@+id/tvVolunteerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Volunteer Name"/>
+
+    <TextView android:id="@+id/tvVolunteerSkill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Skill"/>
+
+    <TextView android:id="@+id/tvVolunteerAvailability"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Available"/>
+
+    <LinearLayout
+        android:layout_width="310dp"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+    <Button
+        android:id="@+id/btnSendEmail"
+        android:layout_width="140dp"
+        android:layout_height="48dp"
+        android:layout_margin="5dp"
+        android:text="send email"/>
+
+        <Button
+            android:id="@+id/btnDeleteUser"
+            android:layout_width="140dp"
+            android:layout_height="48dp"
+            android:layout_margin="5dp"
+            android:text="delete" />
+    </LinearLayout>
+</LinearLayout>
