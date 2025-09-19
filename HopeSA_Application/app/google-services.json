@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "512875427504",
+    "firebase_url": "https://hopesa-a078c-default-rtdb.firebaseio.com",
+    "project_id": "hopesa-a078c",
+    "storage_bucket": "hopesa-a078c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512875427504:android:95bbcb99e3ce1160c52d75",
+        "android_client_info": {
+          "package_name": "com.example.hopesa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512875427504-c6rmepkvmbnlec6psqc6i8p442amngp8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hopesa",
+            "certificate_hash": "7d3c285f7bc5b6b14183c1f47bd5e2ac50b44d92"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbwyO78_Vwzpm-6lFXwnCh-Ch017WKaOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
