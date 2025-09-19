@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CRUD App</title>
+</head>
+<body>
+  <h2>CRUD App (with Firebase Config)</h2>
+
+  <input id="itemInput" placeholder="Add item" />
+  <button onclick="addItem()">Add</button>
+
+  <ul id="itemList"></ul>
+
+  
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDf6ECuAV19tN6CiX6R2e0ZK2WuwW0iSGg",
+      authDomain: "hopesa-a078c.firebaseapp.com",
+      databaseURL: "https://hopesa-a078c-default-rtdb.firebaseio.com",
+      projectId: "hopesa-a078c",
+      storageBucket: "hopesa-a078c.appspot.com",
+      messagingSenderId: "512875427504",
+      appId: "1:512875427504:web:6634abbd75fd764fc52d75",
+      measurementId: "G-G6GX90LCGP"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <script>
+    async function fetchItems() {
+      const res = await fetch('/api/items');
+      const items = await res.json();
+      const list = document.getElementById('itemList');
+      list.innerHTML = '';
+      items.forEach(item => {
+        list.innerHTML += `
+          <li>${item.name}
+            <button onclick="deleteItem('${item._id}')">Delete</button>
+            <button onclick="editItem('${item._id}', '${item.name}')">Edit</button>
+          </li>`;
+      });
+    }
+
+    async function addItem() {
+      const name = document.getElementById('itemInput').value;
+      if (!name.trim()) return;
+      await fetch('/api/items', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name })
+      });
+      document.getElementById('itemInput').value = '';
+      fetchItems();
+    }
+
+    async function deleteItem(id) {
+      await fetch('/api/items/' + id, { method: 'DELETE' });
+      fetchItems();
+    }
+
+    async function editItem(id, currentName) {
+      const newName = prompt("Edit item:", currentName);
+      if (newName && newName !== currentName) {
+        await fetch('/api/items/' + id, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: newName })
+        });
+        fetchItems();
+      }
+    }
+
+    fetchItems();
+  </script>
+</body>
+</html>
